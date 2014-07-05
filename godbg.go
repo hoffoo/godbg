@@ -216,6 +216,7 @@ func main() {
 					// TODO log the marshalling error
 				case data := <-mygdb.Target:
 					bytes, err := json.Marshal(&webSockResult{Type: "target", Data: data})
+					fmt.Print(data)
 					if err == nil {
 						_, err := ws.Write(bytes)
 						if err != nil {
