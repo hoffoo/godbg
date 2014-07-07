@@ -734,16 +734,7 @@ define(['orion/xhr'], function(xhr) {
 	var websocket = new WebSocket(wsUrl);
 	//websocket.onopen = function(evt) {  };
 	websocket.onclose = function(evt) {
-		window.alert("Connection to debugger has been closed");
-		
-		document.body.setAttribute("style", "overflow: hidden; background: grey;");
-		
-		allVariablesWidget.disable();
-		allBreakpointsWidget.disable();
-		allThreadsWidget.disable();
-		executionWidget.disable();
-		interruptButton.disabled = true;
-		exitButton.disabled = true;
+        window.close();
 	};
 	websocket.onmessage = function(evt) {
 		var event = JSON.parse(evt.data);
